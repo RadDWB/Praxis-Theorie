@@ -703,13 +703,13 @@ function updateZoom() {
     const vh = window.innerHeight - 90;
     if (currentZoom === 1) {
         lbImg.style.width = '';
-        lbImg.style.maxWidth = vw + 'px';
-        lbImg.style.maxHeight = vh + 'px';
+        lbImg.style.maxWidth = (vw * 0.5) + 'px';
+        lbImg.style.maxHeight = (vh * 0.5) + 'px';
     } else {
         const base = Math.min(vw, lbImg.naturalWidth || vw);
         lbImg.style.maxWidth = 'none';
         lbImg.style.maxHeight = 'none';
-        lbImg.style.width = (base * currentZoom) + 'px';
+        lbImg.style.width = (base * currentZoom * 0.5) + 'px';
     }
     zoomPct.textContent = Math.round(currentZoom * 100) + '%';
 }
