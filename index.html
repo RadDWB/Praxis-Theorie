@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praxis-Theorie-Verknüpfung | Sportunterricht NRW</title>
+
+    <meta name="description" content="Praxis-Theorie-Verknüpfung im Sportunterricht: Sportliches Handeln systematisch mit fachlichem Wissen und Reflexion verbinden.">
+    <meta property="og:title" content="Praxis-Theorie-Verknüpfung im Sportunterricht">
+    <meta property="og:description" content="Sportliches Handeln systematisch mit fachlichem Wissen und Reflexion verbinden: Verstehen durch Handeln, Handeln durch Verstehen.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="de_DE">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #f1f5f9;
+            --bg-card: #ffffff;
+            --nav-bg: rgba(241,245,249,0.90);
+            --border: rgba(0,0,0,0.08);
+            --border-hl: rgba(37,99,235,0.35);
+            --text: #0f172a;
+            --muted: #64748b;
+            --accent: #2563eb;
+            --accent-dk: #1d4ed8;
+            --accent-lg: rgba(37,99,235,0.10);
+            --glow: 0 20px 60px -10px rgba(37,99,235,0.20);
+            --radius: 1.25rem;
+            --fh: 'Space Grotesk', system-ui, sans-serif;
+            --fb: 'Inter', system-ui, sans-serif;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--fb);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 200;
+            background: var(--nav-bg);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 24px;
+            height: 62px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .nav-brand img { height: 26px; width: auto; }
+
+        .nav-title {
+            font-family: var(--fh);
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .nav-title em { font-style: normal; color: var(--accent); }
+
+        .nav-links {
+            display: flex;
+            gap: 2px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 6px 13px;
+            border-radius: 8px;
+            transition: color .2s, background .2s;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover { color: var(--text); background: rgba(0,0,0,0.05); }
+
+        @media (max-width: 680px) { .nav-links { display: none; } }
+
+        .hero {
+            padding: 132px 24px 68px;
+            text-align: center;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--accent-lg);
+            border: 1px solid var(--border-hl);
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            padding: 5px 14px;
+            border-radius: 999px;
+            margin-bottom: 26px;
+        }
+
+        .hero h1 {
+            font-family: var(--fh);
+            font-size: clamp(1.9rem, 5vw, 3.2rem);
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            line-height: 1.12;
+            margin-bottom: 18px;
+            color: var(--text);
+        }
+
+        .hero h1 em { font-style: normal; color: var(--accent); }
+
+        .hero p {
+            font-size: 1rem;
+            color: var(--muted);
+            max-width: 620px;
+            margin: 0 auto;
+            line-height: 1.75;
+        }
+
+        .section {
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+        }
+
+        .section-eyebrow {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.10em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 6px;
+        }
+
+        .section-heading {
+            font-family: var(--fh);
+            font-size: clamp(1.3rem, 3vw, 1.75rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            color: var(--text);
+            margin-bottom: 28px;
+        }
+
+        .print-bar {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            color: var(--text);
+            font-family: var(--fb);
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: border-color .2s, box-shadow .2s, color .2s, background .2s;
+        }
+
+        .btn:hover {
+            border-color: var(--border-hl);
+            color: var(--accent);
+            box-shadow: 0 4px 14px rgba(37,99,235,0.12);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-dk);
+            border-color: var(--accent-dk);
+            color: #fff;
+        }
+
+        .print-hint {
+            font-size: 0.82rem;
+            color: var(--muted);
+        }
+
+        .grafiken-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 20px;
+            max-width: 1040px;
+        }
+
+        .grafik-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            cursor: zoom-in;
+            transition: transform .35s cubic-bezier(.4,0,.2,1),
+                        box-shadow .35s cubic-bezier(.4,0,.2,1),
+                        border-color .2s;
+        }
+
+        .grafik-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--glow);
+            border-color: var(--border-hl);
+        }
+
+        .grafik-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .grafik-caption {
+            padding: 14px 18px 16px;
+            border-top: 1px solid var(--border);
+        }
+
+        .grafik-num {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 3px;
+        }
+
+        .grafik-label {
+            font-family: var(--fh);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 5px;
+        }
+
+        .grafik-hint {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.76rem;
+            color: var(--muted);
+        }
+
+        .glossar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+            gap: 10px;
+        }
+
+        .glossar-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: border-color .2s;
+        }
+
+        .glossar-item:hover { border-color: var(--border-hl); }
+
+        .glossar-trigger {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 13px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            text-align: left;
+            font-family: var(--fb);
+        }
+
+        .g-letter {
+            flex-shrink: 0;
+            width: 26px;
+            height: 26px;
+            border-radius: 6px;
+            background: var(--accent-lg);
+            color: var(--accent);
+            font-size: 0.72rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .g-term {
+            flex: 1;
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .g-chevron {
+            flex-shrink: 0;
+            color: var(--muted);
+            transition: transform .2s;
+        }
+
+        .glossar-item.open .g-chevron { transform: rotate(180deg); }
+        .glossar-item.open .g-letter { background: var(--accent); color: #fff; }
+
+        .g-def {
+            display: none;
+            padding: 11px 16px 14px 52px;
+            font-size: 0.85rem;
+            color: var(--muted);
+            line-height: 1.65;
+            border-top: 1px solid var(--border);
+        }
+
+        .glossar-item.open .g-def { display: block; }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 500;
+            background: rgba(2, 6, 23, 0.88);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+        }
+
+        .lightbox.active { display: flex; flex-direction: column; }
+
+        .lb-topbar {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            min-height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 16px;
+            z-index: 10;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.45), transparent);
+            gap: 12px;
+        }
+
+        .lb-label {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.75);
+        }
+
+        .lb-controls {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .lb-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.20);
+            color: #fff;
+            height: 36px;
+            min-width: 36px;
+            padding: 0 10px;
+            border-radius: 9px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-family: var(--fb);
+            font-weight: 600;
+            transition: background .2s;
+            white-space: nowrap;
+        }
+
+        .lb-btn:hover { background: rgba(255,255,255,0.22); }
+        .lb-btn:disabled { opacity: 0.4; cursor: default; }
+        .lb-btn:disabled:hover { background: rgba(255,255,255,0.12); }
+
+        .lb-btn-close {
+            background: rgba(220,38,38,0.30);
+            border-color: rgba(220,38,38,0.40);
+        }
+
+        .lb-btn-close:hover { background: rgba(220,38,38,0.55); }
+
+        .lb-scroll {
+            flex: 1;
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 74px 20px 24px;
+        }
+
+        .lb-img-wrap { display: inline-block; }
+
+        .lb-img-wrap img {
+            display: block;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 32px 80px rgba(0,0,0,0.55);
+            touch-action: pinch-zoom;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 36px 24px 40px;
+        }
+
+        .footer-inner {
+            max-width: 700px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            text-align: center;
+        }
+
+        .footer-logo img { height: 34px; width: auto; opacity: 0.65; }
+
+        .footer-copy {
+            font-size: 0.80rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .version-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: var(--accent-lg);
+            color: var(--accent);
+            font-size: 0.70rem;
+            font-weight: 700;
+            letter-spacing: 0.07em;
+            padding: 3px 11px;
+            border-radius: 999px;
+        }
+
+        @media (max-width: 680px) {
+            .lb-topbar {
+                height: auto;
+                min-height: 56px;
+                align-items: flex-start;
+                gap: 10px;
+                padding: 10px 12px;
+            }
+
+            .lb-label { padding-top: 8px; }
+            .lb-controls { flex-wrap: wrap; justify-content: flex-end; }
+            .lb-scroll { padding-top: 94px; }
+        }
+
+        @media print {
+            nav, .hero, .print-bar, .grafik-caption,
+            .glossar-section, footer, .lightbox { display: none !important; }
+
+            body { background: #fff; }
+            .section { padding: 0; max-width: 100%; }
+
+            .grafiken-grid { display: block !important; }
+
+            .grafik-card {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 297mm;
+                min-height: 210mm;
+                page-break-after: avoid;
+                break-after: avoid;
+                border: none !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                cursor: default;
+                margin: 0 auto;
+            }
+
+            .grafik-card img {
+                max-width: 280mm;
+                max-height: 190mm;
+                width: auto;
+                height: auto;
+                object-fit: contain;
+            }
+
+            * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#" class="nav-brand">
+        <img src="assets/images/logos/sem-schwarz.png" alt="Straight Edge Media">
+        <span class="nav-title">Praxis-Theorie <em>Verknüpfung</em></span>
+    </a>
+    <ul class="nav-links">
+        <li><a href="#grafiken">Grafik</a></li>
+        <li><a href="#glossar">Glossar</a></li>
+    </ul>
+</nav>
+
+<div class="hero">
+    <div class="badge">Didaktik & Kompetenzentwicklung · NRW-Curriculum</div>
+    <h1>Praxis-Theorie <em>Verknüpfung</em></h1>
+    <p>Sportliches Handeln systematisch mit fachlichem Wissen und Reflexion verbinden: Bewegungen werden nicht nur ausgeführt, sondern begrundet, analysiert und bewertet.</p>
+</div>
+
+<div class="section grafiken-section" id="grafiken">
+    <p class="section-eyebrow">Lernmaterial</p>
+    <h2 class="section-heading">Infografik zur Praxis-Theorie-Verknüpfung</h2>
+
+    <div class="print-bar">
+        <button class="btn btn-primary" onclick="window.print()">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 6 2 18 2 18 9"/>
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+                <rect x="6" y="14" width="12" height="8"/>
+            </svg>
+            Drucken / Als PDF speichern
+        </button>
+        <span class="print-hint">Die Grafik wird hochformatig gedruckt</span>
+    </div>
+
+    <div class="grafiken-grid">
+        <div class="grafik-card" onclick="openLightbox(0)" role="button" tabindex="0" aria-label="Grafik vergrößern">
+            <img src="images/Praxis-Theorie-Verknüpfung.png" alt="Praxis-Theorie-Verknüpfung Infografik mit Zahnradern, Bewegungsfeldern und Kompetenzen" loading="eager">
+            <div class="grafik-caption">
+                <div class="grafik-num">Seite 1 von 1</div>
+                <div class="grafik-label">Praxis-Theorie-Verknüpfung im Sportunterricht</div>
+                <div class="grafik-hint">Antippen zum Vergrößern &amp; Zoomen</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section glossar-section" id="glossar">
+    <p class="section-eyebrow">Fachsprache</p>
+    <h2 class="section-heading">Glossar - Praxis-Theorie auf einen Blick</h2>
+    <div class="glossar-grid" id="glossarGrid"></div>
+</div>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-logo">
+            <img src="assets/images/logos/sem-schwarz.png" alt="Straight Edge Media">
+        </div>
+        <p class="footer-copy">
+            © 2026 Straight Edge Media<br>
+            Praxis-Theorie-Verknüpfung im Sportunterricht · NRW-Curriculum
+        </p>
+        <span class="version-pill">v 1.0.0</span>
+    </div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Grafik-Vollansicht">
+    <div class="lb-topbar">
+        <span class="lb-label" id="lbLabel"></span>
+        <div class="lb-controls">
+            <button class="lb-btn" id="btnPrev" onclick="navLightbox(-1)" title="Vorherige Grafik">Zurück</button>
+            <button class="lb-btn" onclick="zoomOut()" title="Verkleinern">-</button>
+            <button class="lb-btn" id="zoomPct" style="min-width:52px;cursor:default;" disabled>100%</button>
+            <button class="lb-btn" onclick="zoomIn()" title="Vergrößern">+</button>
+            <button class="lb-btn" onclick="zoomReset()" title="Zoom zurücksetzen">↺</button>
+            <button class="lb-btn" id="btnNext" onclick="navLightbox(1)" title="Nachste Grafik">Weiter</button>
+            <button class="lb-btn lb-btn-close" onclick="closeLightbox()" title="Schließen">✕</button>
+        </div>
+    </div>
+    <div class="lb-scroll" id="lbScroll">
+        <div class="lb-img-wrap">
+            <img id="lbImg" src="" alt="">
+        </div>
+    </div>
+</div>
+
+<script>
+const IMAGES = [
+    { src: 'images/Praxis-Theorie-Verknüpfung.png', label: 'Praxis-Theorie-Verknüpfung: Zahnrader von Praxis und Theorie, Bewegungsfelder, Theoriefelder, Kompetenzen' },
+];
+
+let currentIdx = 0;
+let currentZoom = 1;
+const ZOOM_STEP = 0.25;
+const ZOOM_MAX = 4;
+const ZOOM_MIN = 0.5;
+
+const lb = document.getElementById('lightbox');
+const lbImg = document.getElementById('lbImg');
+const lbLabel = document.getElementById('lbLabel');
+const lbScroll = document.getElementById('lbScroll');
+const zoomPct = document.getElementById('zoomPct');
+const btnPrev = document.getElementById('btnPrev');
+const btnNext = document.getElementById('btnNext');
+
+function openLightbox(idx) {
+    currentIdx = idx;
+    currentZoom = 1;
+    setImage(currentIdx);
+    lb.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    lbScroll.scrollTo(0, 0);
+}
+
+function setImage(idx) {
+    const d = IMAGES[idx];
+    lbImg.src = d.src;
+    lbImg.alt = d.label;
+    lbLabel.textContent = d.label;
+    btnPrev.disabled = idx === 0;
+    btnNext.disabled = idx === IMAGES.length - 1;
+    updateZoom();
+}
+
+function navLightbox(dir) {
+    const next = currentIdx + dir;
+    if (next < 0 || next >= IMAGES.length) return;
+    currentIdx = next;
+    currentZoom = 1;
+    lbScroll.scrollTo(0, 0);
+    setImage(currentIdx);
+}
+
+function closeLightbox() {
+    lb.classList.remove('active');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+}
+
+function updateZoom() {
+    const vw = window.innerWidth - 40;
+    const vh = window.innerHeight - 90;
+    if (currentZoom === 1) {
+        lbImg.style.width = '';
+        lbImg.style.maxWidth = vw + 'px';
+        lbImg.style.maxHeight = vh + 'px';
+    } else {
+        const base = Math.min(vw, lbImg.naturalWidth || vw);
+        lbImg.style.maxWidth = 'none';
+        lbImg.style.maxHeight = 'none';
+        lbImg.style.width = (base * currentZoom) + 'px';
+    }
+    zoomPct.textContent = Math.round(currentZoom * 100) + '%';
+}
+
+function zoomIn() { currentZoom = Math.min(currentZoom + ZOOM_STEP, ZOOM_MAX); updateZoom(); }
+function zoomOut() { currentZoom = Math.max(currentZoom - ZOOM_STEP, ZOOM_MIN); updateZoom(); }
+function zoomReset() { currentZoom = 1; lbScroll.scrollTo(0, 0); updateZoom(); }
+
+lbScroll.addEventListener('click', e => { if (e.target === lbScroll) closeLightbox(); });
+
+document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') navLightbox(1);
+    if (e.key === 'ArrowLeft') navLightbox(-1);
+    if (e.key === '+') zoomIn();
+    if (e.key === '-') zoomOut();
+    if (e.key === '0') zoomReset();
+});
+
+window.addEventListener('resize', () => {
+    if (lb.classList.contains('active')) updateZoom();
+});
+
+document.querySelectorAll('.grafik-card').forEach(card => {
+    card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
+    });
+});
+
+const TERMS = [
+    { term: 'Bewegungsfelder', def: 'Thematische Bereiche des Sportunterrichts, die verschiedene Bewegungsarten und Sportarten systematisch organisieren und unterschiedliche Erfahrungsraume eröffnen.' },
+    { term: 'Belastungsdruck', def: 'Druckbedingung, die sich aus der zeitlichen Ausdauer, Intensität und Dichte von Bewegungsaufgaben ergibt.' },
+    { term: 'Kompetenzen', def: 'Fähigkeiten, Fertigkeiten und Wissen, die Schülerinnen und Schüler entwickeln, um sportliche und bewegungsbezogene Aufgaben bewältigen zu können.' },
+    { term: 'Kompetenztransfer', def: 'Übertragung und Anwendung von in einem Kontext erworbenen Fähigkeiten auf andere sportliche Situationen und Bewegungsfelder.' },
+    { term: 'Komplexitatsdruck', def: 'Druckbedingung, die durch die Zahl der zu koordinierenden Bewegungselemente und Informationen entsteht.' },
+    { term: 'KAR-Modell', def: 'Reflexionsmodell mit den Phasen Kompetenz (Können), Analyse (Verstehen), Reflexion (Bewusstsein) – Verbindung von Handlung und Theorie.' },
+    { term: 'Methodenkompetenz', def: 'Fähigkeit, Bewegungs- und Sportaufgaben eigenständig zu planen, durchzuführen, zu beobachten, zu analysieren und zu bewerten.' },
+    { term: 'Präzisionsdruck', def: 'Druckbedingung, die sich aus Anforderungen an Genauigkeit und Sicherheit in motorischen Aufgaben ergibt.' },
+    { term: 'Reflektierte Praxis', def: 'Sportliche Praxis, die systematisch mit Reflexion, Analyse und theoretischem Wissen verbunden wird – Zentrum der Praxis-Theorie-Verknüpfung.' },
+    { term: 'Sachkompetenz', def: 'Wissen über sportliche, bewegungswissenschaftliche und theoretische Grundlagen sowie Verstandnis von Regeln, Techniken und Konzepten.' },
+    { term: 'Situationsdruck', def: 'Druckbedingung, die durch sich verandernde Spielsituationen und Rahmenbedingungen entsteht, z. B. in Spielsportarten.' },
+    { term: 'Theoriefelder', def: 'Systematische Bereiche von sportbezogenen Wissensthalte wie Biomechanik, Trainingslehre, Sportgeschichte, Sportsoziologie und Sportethik.' },
+    { term: 'Theorie-Praxis-Verknüpfung', def: 'Systematische Integration von sportpraktischem Handeln und theoretischem Wissen, um tiefere Verstandnis und reflektierte Kompetenzentwicklung zu ermöglichen.' },
+    { term: 'Urteilskompetenz', def: 'Fähigkeit, sportliche Leistungen, Techniken und Situationen nach schulisch erworbenen Kriterienkatalogen zu bewerten und zu beurteilen.' },
+    { term: 'Videoanalyse', def: 'Systematische Methode zur Beobachtung, Analyse und Reflexion von Bewegungsabläufen mittels Videomaterial – Beispiel fur Theorie-Praxis-Verknüpfung.' },
+    { term: 'Wissenschaftspropädeutik', def: 'Einführung in wissenschaftliches Denken und Arbeiten im Sportunterricht, z. B. durch Hypothesenbildung, Datensammlung und Auswertung.' },
+];
+
+function buildGlossar() {
+    const grid = document.getElementById('glossarGrid');
+    TERMS.sort((a, b) => a.term.localeCompare(b.term, 'de'));
+    TERMS.forEach(t => {
+        const letter = t.term.replace(/^\\d/, '#')[0].toUpperCase();
+        const item = document.createElement('div');
+        item.className = 'glossar-item';
+        item.innerHTML = `
+            <button class="glossar-trigger" onclick="toggleG(this)">
+                <span class="g-letter">${letter}</span>
+                <span class="g-term">${t.term}</span>
+                <svg class="g-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"/>
+                </svg>
+            </button>
+            <div class="g-def">${t.def}</div>`;
+        grid.appendChild(item);
+    });
+}
+
+function toggleG(btn) {
+    btn.closest('.glossar-item').classList.toggle('open');
+}
+
+buildGlossar();
+</script>
+</body>
+</html>
